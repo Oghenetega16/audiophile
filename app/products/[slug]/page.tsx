@@ -110,7 +110,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <ul className="space-y-2">
               {product.includedItems.map((item, index) => (
                 <li key={index} className="flex gap-6">
-                  <span className="text-[#D87D4A] font-bold min-w-[20px]">
+                  <span className="text-[#D87D4A] font-bold min-w-5">
                     {item.quantity}x
                   </span>
                   <span className="text-black/50">{item.item}</span>

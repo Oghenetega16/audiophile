@@ -124,3 +124,34 @@
         color: var(--primary-orange);
     }
 }
+
+/* Cart Drawer Animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+@media (min-width: 768px) {
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+.animate-slideIn {
+    animation: slideIn 0.3s ease-out;
+}

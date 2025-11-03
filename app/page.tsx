@@ -8,11 +8,36 @@ export default function Home() {
         <main>
             {/* Hero Section */}
             <section className="bg-[#191919] text-white relative overflow-hidden">
-                <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-20 py-20 md:py-32 grid lg:grid-cols-2 gap-12 items-center">
+                {/* Desktop Background Image */}
+                <div className="hidden lg:block absolute inset-0">
+                    <Image 
+                        src="/assets/images/hero-headphone-bg.png"
+                        alt=""
+                        fill
+                        className="object-cover object-center"
+                        priority
+                    />
+                </div>
+
+                {/* Tablet/Mobile Background Image */}
+                <div className="lg:hidden absolute inset-0">
+                    <Image 
+                        src="/assets/images/hero-headphone-sm.png"
+                        alt=""
+                        fill
+                        className="object-cover object-center"
+                        priority
+                    />
+                </div>
+
+                {/* Content */}
+                <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-20 py-20 md:py-32 lg:py-40 relative z-10">
                     <div className="max-w-[400px] text-center lg:text-left mx-auto lg:mx-0">
-                        <p className="text-white/50 text-sm tracking-[10px] font-normal mb-4">NEW PRODUCT</p>
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-wider mb-6">XX99 MARK II<br />HEADPHONES</h1>
-                        <p className="text-white/75 mb-10">
+                        <p className="text-white/50 text-sm tracking-[10px] font-normal mb-4 uppercase">New Product</p>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-wider mb-6 uppercase">
+                            XX99 Mark II<br />Headphones
+                        </h1>
+                        <p className="text-white/75 mb-10 leading-relaxed">
                             Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.
                         </p>
                         <Link 
@@ -21,22 +46,6 @@ export default function Home() {
                         >
                             See Product
                         </Link>
-                    </div>
-                    <div className="hidden lg:flex justify-center relative">
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-[600px] h-[600px] border border-white/10 rounded-full"></div>
-                            <div className="absolute w-[500px] h-[500px] border border-white/10 rounded-full"></div>
-                            <div className="absolute w-[400px] h-[400px] border border-white/10 rounded-full"></div>
-                        </div>
-                        <div className="relative z-10">
-                            <Image 
-                                src="/assets/images/hero-headphones.png"
-                                alt="XX99 Mark II Headphones"
-                                width={400}
-                                height={400}
-                                className="object-contain"
-                            />
-                        </div>
                     </div>
                 </div>
             </section>
