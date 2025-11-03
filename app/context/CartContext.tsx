@@ -23,30 +23,29 @@ interface CartContextType {
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-export function CartProvider({ children }: { children: ReactNode }) {
-    const [items, setItems] = useState<CartItem[]>([]);
-    const [isCartOpen, setIsCartOpen] = useState(false);
-    const [isInitialized, setIsInitialized] = useState(false);
-
-    // Load cart from localStorage on mount
-    useEffect(() => {
+// Helper function to load cart from localStorage
+function getInitialCart(): CartItem[] {
+    if (typeof window === "undefined") return [];
+    
+    try {
         const savedCart = localStorage.getItem("audiophile-cart");
         if (savedCart) {
-            try {
-                setItems(JSON.parse(savedCart));
-            } catch (error) {
-                console.error("Failed to parse cart data:", error);
-            }
+            return JSON.parse(savedCart);
         }
-        setIsInitialized(true);
-    }, []);
+    } catch (error) {
+        console.error("Failed to parse cart data:", error);
+    }
+    return [];
+}
 
-  // Save cart to localStorage whenever it changes (after initialization)
+export function CartProvider({ children }: { children: ReactNode }) {
+    const [items, setItems] = useState<CartItem[]>(getInitialCart);
+    const [isCartOpen, setIsCartOpen] = useState(false);
+
+    // Save cart to localStorage whenever it changes
     useEffect(() => {
-        if (isInitialized) {
-            localStorage.setItem("audiophile-cart", JSON.stringify(items));
-        }
-    }, [items, isInitialized]);
+        localStorage.setItem("audiophile-cart", JSON.stringify(items));
+    }, [items]);
 
     const addToCart = (product: Product, quantity: number) => {
         setItems((currentItems) => {
@@ -57,9 +56,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
             if (existingItem) {
                 // Update quantity if item already exists
                 return currentItems.map((item) =>
-                item.product.id === product.id
-                    ? { ...item, quantity: item.quantity + quantity }
-                    : item
+                    item.product.id === product.id
+                        ? { ...item, quantity: item.quantity + quantity }
+                        : item
                 );
             } else {
                 // Add new item
@@ -70,7 +69,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
     const removeFromCart = (productId: number) => {
         setItems((currentItems) =>
-        currentItems.filter((item) => item.product.id !== productId)
+            currentItems.filter((item) => item.product.id !== productId)
         );
     };
 
