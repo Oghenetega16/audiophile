@@ -32,7 +32,7 @@ export default function Categories() {
                 <div className="bg-[#F1F1F1] rounded-lg pt-16 pb-4 px-8 text-center relative">
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
                         <Image 
-                            src="/assets/images/speakers.png"
+                            src="/assets/images/speaker.png"
                             alt="Speakers"
                             width={84.04}
                             height={101}
