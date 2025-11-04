@@ -3,8 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ShoppingCart, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useCart } from "@/app/context/CartContext";
+
 
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -23,9 +24,9 @@ export default function Header() {
                             aria-label="Toggle menu"
                         >
                             {mobileMenuOpen ? (
-                                <X className="w-6 h-6" />
+                                <X className="w-6 h-6 cursor-pointer" />
                             ) : (
-                                <Menu className="w-6 h-6" />
+                                <Menu className="w-6 h-6 cursor-pointer" />
                             )}
                         </button>
 
@@ -80,10 +81,15 @@ export default function Header() {
                         {/* Cart Icon */}
                         <button 
                             onClick={openCart}
-                            className="relative hover:text-[#D87D4A] transition-colors"
+                            className="relative cursor-pointer hover:text-[#D87D4A] transition-colors"
                             aria-label="Shopping cart"
                         >
-                            <ShoppingCart className="w-6 h-6" />
+                            <Image 
+                                src="/assets/images/shopping-cart.png" 
+                                alt="Shopping Cart" 
+                                width={23}
+                                height={20}
+                            />
                             {cartItemCount > 0 && (
                                 <span className="absolute -top-2 -right-2 bg-[#D87D4A] text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
                                     {cartItemCount}
@@ -105,8 +111,8 @@ export default function Header() {
 
                     {/* Menu Content */}
                     <div className="fixed top-[90px] left-0 right-0 bg-white z-40 lg:hidden">
-                        <div className="max-w-7xl mx-auto px-6 md:px-10 py-8 md:py-14">
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+                        <div className="max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-14">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8">
                                 {/* Headphones Category */}
                                 <Link 
                                     href="/headphones"
@@ -117,8 +123,8 @@ export default function Header() {
                                         <Image 
                                             src="/assets/images/headphones.png"
                                             alt="Headphones"
-                                            width={140}
-                                            height={140}
+                                            width={79.92}
+                                            height={104}
                                             className="object-contain"
                                         />
                                     </div>
@@ -141,8 +147,8 @@ export default function Header() {
                                         <Image 
                                             src="/assets/images/speakers.png"
                                             alt="Speakers"
-                                            width={140}
-                                            height={140}
+                                            width={84.04}
+                                            height={101}
                                             className="object-contain"
                                         />
                                     </div>
@@ -165,8 +171,8 @@ export default function Header() {
                                         <Image 
                                             src="/assets/images/earphones.png"
                                             alt="Earphones"
-                                            width={140}
-                                            height={140}
+                                            width={103}
+                                            height={104}
                                             className="object-contain"
                                         />
                                     </div>

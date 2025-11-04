@@ -5,6 +5,7 @@ import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import { CartProvider } from "./context/CartContext";
 import CartDrawer from "./components/cart/CartDrawer";
+import { ConvexClientProvider } from "./components/ConvexClientProvider";
 
 const manrope = Manrope({
     subsets: ["latin"],
@@ -14,7 +15,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-    title: "My Ecommerce Store",
+    title: "Audiophile",
     description: "Premium audio equipment ecommerce store",
 };
 
@@ -26,15 +27,17 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body 
-                className={`${manrope.variable} antialiased`}
+                className={`${manrope.variable} ${manrope.className} antialiased`}
                 suppressHydrationWarning
             >   
-                <CartProvider>
-                    <Header />
-                    <CartDrawer />
-                    {children}
-                    <Footer />
-                </CartProvider>
+                <ConvexClientProvider>
+                    <CartProvider>
+                        <Header />
+                        <CartDrawer />
+                        {children}
+                        <Footer />
+                    </CartProvider>
+                </ConvexClientProvider>
             </body>
         </html>
     );

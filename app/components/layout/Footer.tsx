@@ -9,43 +9,45 @@ export default function Footer() {
                 <div className="w-[101px] h-1 bg-[#D87D4A] mx-auto md:mx-0"></div>
                 
                 <div className="py-12 md:py-16">
-                    {/* Logo */}
-                    <div className="mb-12 flex justify-center md:justify-start">
-                        <Link href="/">
-                            <Image 
-                                src="/assets/images/audiophile.png" 
-                                alt="Audiophile logo" 
-                                width={143}
-                                height={25}
-                            />
-                        </Link>
-                    </div>
+                    <div className="lg:flex lg:justify-between">
+                        {/* Logo */}
+                        <div className="mb-12 flex justify-center md:justify-start">
+                            <Link href="/">
+                                <Image 
+                                    src="/assets/images/audiophile.png" 
+                                    alt="Audiophile logo" 
+                                    width={143}
+                                    height={25}
+                                />
+                            </Link>
+                        </div>
 
-                    {/* Navigation */}
-                    <nav className="mb-12">
-                        <ul className="flex flex-col md:flex-row gap-4 md:gap-8 text-center md:text-left">
-                            <li>
-                                <Link href="/" className="hover:text-[#D87D4A] transition-colors uppercase text-[13px] font-bold tracking-[2px]">
-                                    Home
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/headphones" className="hover:text-[#D87D4A] transition-colors uppercase text-[13px] font-bold tracking-[2px]">
-                                    Headphones
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/speakers" className="hover:text-[#D87D4A] transition-colors uppercase text-[13px] font-bold tracking-[2px]">
-                                    Speakers
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/earphones" className="hover:text-[#D87D4A] transition-colors uppercase text-[13px] font-bold tracking-[2px]">
-                                    Earphones
-                                </Link>
-                            </li>
-                        </ul>
-                    </nav>
+                        {/* Navigation */}
+                        <nav className="mb-12">
+                            <ul className="flex flex-col md:flex-row gap-4 md:gap-8 text-center md:text-left">
+                                <li>
+                                    <Link href="/" className="hover:text-[#D87D4A] transition-colors uppercase text-[13px] font-bold tracking-[2px]">
+                                        Home
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/headphones" className="hover:text-[#D87D4A] transition-colors uppercase text-[13px] font-bold tracking-[2px]">
+                                        Headphones
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/speakers" className="hover:text-[#D87D4A] transition-colors uppercase text-[13px] font-bold tracking-[2px]">
+                                        Speakers
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/earphones" className="hover:text-[#D87D4A] transition-colors uppercase text-[13px] font-bold tracking-[2px]">
+                                        Earphones
+                                    </Link>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
 
                     {/* Description */}
                     <p className="text-white/50 max-w-[540px] text-[15px] leading-[25px] mb-12 text-center md:text-left">
@@ -66,7 +68,7 @@ export default function Footer() {
                                 </svg>
                             </a>
                             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#D87D4A] transition-colors" aria-label="Twitter">
-                                <svg width="24" height="20" xmlns="http://www.w3.org/2000/svg">
+                                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M24 2.557a9.83 9.83 0 01-2.828.775A4.932 4.932 0 0023.337.608a9.864 9.864 0 01-3.127 1.195A4.916 4.916 0 0016.616.248c-3.179 0-5.515 2.966-4.797 6.045A13.978 13.978 0 011.671 1.149a4.93 4.93 0 001.523 6.574 4.903 4.903 0 01-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.935 4.935 0 01-2.224.084 4.928 4.928 0 004.6 3.419A9.9 9.9 0 010 17.54a13.94 13.94 0 007.548 2.212c9.142 0 14.307-7.721 13.995-14.646A10.025 10.025 0 0024 2.557z" fill="currentColor"/>
                                 </svg>
                             </a>
