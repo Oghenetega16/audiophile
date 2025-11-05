@@ -145,7 +145,7 @@ export default function Header() {
                                 >
                                     <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
                                         <Image 
-                                            src="/assets/images/speakers.png"
+                                            src="/assets/images/speaker.png"
                                             alt="Speakers"
                                             width={84.04}
                                             height={101}
